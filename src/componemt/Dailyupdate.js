@@ -16,9 +16,9 @@ const Dailyupdate = () => {
     }
 
     useEffect(() => {
-        ApiData(Api);
+        ApiData(Api)
 
-    }, [])
+    }, []);
     return (
         <>
             <h2>Technical daily news</h2>
