@@ -1,5 +1,17 @@
 import React from "react";
-import { useContext } from 'react'
+import { useContext, useReducer, useEffect } from 'react'
+import reducer from "./reducer";
+
+let API ="http://hn.algolia.com/api/v1/search?";
+// define initialState
+
+const initialState ={
+    isLoading:true,
+    query:"story",
+    nbpages:0,
+    hitsPerPage:0,
+    hits:[],
+};
 
 
 // create context
@@ -8,9 +20,36 @@ const AppContext = React.createContext();
 
 // create the context provider
 const AppProvider =({children}) => {
+
+    const [state, dispatch] = useReducer(reducer,initialState)
+
+    const ApiData = async (url) => {
+        dispatch({type: "GET_LOADING"});
+        try {
+            const res = await fetch(url);
+            const data = await res.json();
+            console.log(data);
+            dispatch({
+                type: "GET_STORIES",
+            payload: {
+                hits: data.hits,
+                nbpages: data.nbpages
+            },
+        });
+
+        } catch (error) {
+            console.log("error")
+
+        }
+    }
+
+    useEffect(() => {
+        ApiData(`${API}query=${state.query}&page=${state.hitsPerPage}`);
+
+    }, []);
     return(
         <>
-        <AppContext.Provider value = {"Sumit Full Stack developer"}>{children}</AppContext.Provider>
+        <AppContext.Provider value = {{...state}}>{children}</AppContext.Provider>
         </>
     )
 };

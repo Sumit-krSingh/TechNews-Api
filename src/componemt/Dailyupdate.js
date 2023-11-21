@@ -1,27 +1,26 @@
 import React, { useEffect } from 'react'
+import { useGlobalContext } from './context'
 
 const Dailyupdate = () => {
-    let Api = "http://hn.algolia.com/api/v1/search?query=react";
 
-    const ApiData = async (url) => {
-        try {
-            const res = await fetch(url);
-            const data = await res.json();
-            console.log(data);
+    const {hits, isLoading} = useGlobalContext();
 
-        } catch (error) {
-            console.log("error")
+   
 
-        }
+    if(isLoading){
+        return(<>
+            <h2>Loading......</h2>
+        </>
+        );
     }
-
-    useEffect(() => {
-        ApiData(Api)
-
-    }, []);
     return (
         <>
             <h2>Technical daily news</h2>
+
+            {hits.map((curPost)=>{
+                return <h2>{curPost.title}</h2>
+
+            })}
         </>
     )
 }
