@@ -4,7 +4,7 @@ import "../App.css";
 
 const Dailyupdate = () => {
 
-    const { hits, isLoading } = useGlobalContext();
+    const { hits, isLoading , removePost} = useGlobalContext();
 
 
 
@@ -27,11 +27,11 @@ const Dailyupdate = () => {
                                 <h2>{title}</h2>
                                 <p>
                                     By <span>{author}</span> |
-                                    <span>{num_comments}</span>comment
+                                    <span> {num_comments} </span> comment
                                 </p>
                                 <div className="card-button">
                                     <a href={url} target='_blank'>Read More</a>
-                                    <a id="remove" href="#">Remove</a>
+                                    <a id="remove" href="#" onClick={() => removePost(objectID)}>Remove</a>
                                 </div>
                             </div>
                         </>

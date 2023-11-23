@@ -7,7 +7,7 @@ const App = () => {
   
   return (<>
     <div>
-      Welcome to 
+
     </div>
   <Searchbar />
   <Pagenumber />

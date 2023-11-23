@@ -42,14 +42,20 @@ const AppProvider =({children}) => {
 
         }
     }
+    // to removePost use Dispatch and action in reducer
+    const removePost = (post_ID) =>{
+        dispatch({
+            type: "REMOVE_POST",
+        payload :post_ID})
+    }
 
     useEffect(() => {
         ApiData(`${API}query=${state.query}&page=${state.hitsPerPage}`);
 
-    }, []);
+    },[]);
     return(
         <>
-        <AppContext.Provider value = {{...state}}>{children}</AppContext.Provider>
+        <AppContext.Provider value = {{...state, removePost}}>{children}</AppContext.Provider>
         </>
     )
 };

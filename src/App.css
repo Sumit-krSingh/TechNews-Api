@@ -6,22 +6,35 @@
   font-family: 'Poppins', sans-serif;
   box-sizing: border-box;
 }
+html{
+  font-size: 80.5%;
+}
+body{
+  background-color: rgb(242, 243, 246);
+}
 
 .updateBox {
-  position: relative;
-  left: 400px;
+  /* position: relative;
+  left: 400px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
 }
 
-.updateBox>h2 {
+
+
+/* .updateBox>h2 {
   position: relative;
   left: 220px;
 
-}
+} */
 
 .card {
   border: 1px solid black;
   width: 50%;
+  height: 15vh;
   font-family: 'Poppins', sans-serif;
   margin: 20px 0px;
   padding-left: 6px;
@@ -31,14 +44,19 @@
 .card-button {
   display: flex;
   justify-content: space-between;
-  margin: 5px 12px;
+  margin: 20px 12px;
 }
 
 .card-button a {
   text-decoration: none;
   color: rgb(76, 76, 224);
+  font-weight: 500;
+
 }
 
 #remove {
   color: red;
+  font-size: 14px;
+  font-weight: 600;
+
 }

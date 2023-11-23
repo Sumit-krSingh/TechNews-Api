@@ -5,7 +5,7 @@ const Searchbar = () => {
   
   return (
     <div>
-      navigation bar
+  
     </div>
   )
 }
