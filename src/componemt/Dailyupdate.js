@@ -10,7 +10,7 @@ const Dailyupdate = () => {
 
     if (isLoading) {
         return (<>
-            <h2>Loading......</h2>
+            <h2 id='loading'>Loading......</h2>
         </>
         );
     }
@@ -22,7 +22,7 @@ const Dailyupdate = () => {
                 {hits.map((curPost) => {
                     const { title, author, url, num_comments, objectID } = curPost;
                     return (
-                        <>
+                        
                             <div className="card" key ={objectID}>
                                 <h2>{title}</h2>
                                 <p>
@@ -34,7 +34,7 @@ const Dailyupdate = () => {
                                     <a id="remove" href="#" onClick={() => removePost(objectID)}>Remove</a>
                                 </div>
                             </div>
-                        </>
+                        
                     )
 
                 })}

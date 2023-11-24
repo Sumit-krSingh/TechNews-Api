@@ -10,7 +10,7 @@ const Searchbar = () => {
     <>
     <div className="searchBox">
     
-    <h2>Welcome to Tech News</h2>
+    <h1>Welcome to Tech News</h1>
   <form >
   <div>
     <input type="text"
