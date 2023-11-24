@@ -9,7 +9,7 @@ const initialState ={
     isLoading:true,
     query:"story",
     nbpages:0,
-    hitsPerPage:0,
+    Page:0,
     hits:[],
 };
 
@@ -49,13 +49,21 @@ const AppProvider =({children}) => {
         payload :post_ID})
     }
 
-    useEffect(() => {
-        ApiData(`${API}query=${state.query}&page=${state.hitsPerPage}`);
+    // searchPost logic here
+    const searchPost =(searchQuery) =>{
+        dispatch({
+            type :"SEARCH_QUERY",
+            payload :searchQuery
+        });
+    }
 
-    },[]);
+    useEffect(() => {
+        ApiData(`${API}query=${state.query}&page=${state.Page}`);
+
+    },[state.query]);
     return(
         <>
-        <AppContext.Provider value = {{...state, removePost}}>{children}</AppContext.Provider>
+        <AppContext.Provider value = {{...state, removePost, searchPost}}>{children}</AppContext.Provider>
         </>
     )
 };

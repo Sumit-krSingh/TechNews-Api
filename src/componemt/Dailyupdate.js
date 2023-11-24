@@ -17,7 +17,7 @@ const Dailyupdate = () => {
     return (
         <>
             <div className="updateBox">
-                <h2>Technical daily news</h2>
+                {/* <h2>Technical daily news</h2> */}
 
                 {hits.map((curPost) => {
                     const { title, author, url, num_comments, objectID } = curPost;

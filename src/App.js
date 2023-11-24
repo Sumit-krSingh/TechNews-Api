@@ -6,12 +6,12 @@ import Dailyupdate from './componemt/Dailyupdate'
 const App = () => {
   
   return (<>
-    <div>
-
-    </div>
+    {/* <div className='main'> */}
   <Searchbar />
   <Pagenumber />
   <Dailyupdate />
+    {/* </div> */}
+      
   
     </>
   )
